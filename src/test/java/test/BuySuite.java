@@ -5,7 +5,7 @@ import org.junit.Test;
 public class BuySuite extends BaseTest {
     @Test
     public void buyOneShare(){
-        accessPage("http://vamonos-finance.herokuapp.com/login");
+        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
         validateLoginPage();
         fillLoginFields("Juanito.Banana","Testing1234");
         validateMainPage();
@@ -20,7 +20,7 @@ public class BuySuite extends BaseTest {
 
     @Test
     public void buyUserHasNoMoreMoney(){
-        accessPage("http://vamonos-finance.herokuapp.com/login");
+        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
         validateLoginPage();
         fillLoginFields("Juanito.Banana","Testing1234");
         validateMainPage();
@@ -32,7 +32,7 @@ public class BuySuite extends BaseTest {
 
     @Test
     public void buyWithoutSymbol(){
-        accessPage("http://vamonos-finance.herokuapp.com/login");
+        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
         validateLoginPage();
         fillLoginFields("Juanito.Banana","Testing1234");
         validateMainPage();
@@ -44,7 +44,7 @@ public class BuySuite extends BaseTest {
 
     @Test
     public void buyWithWrongSymbol(){
-        accessPage("http://vamonos-finance.herokuapp.com/login");
+        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
         validateLoginPage();
         fillLoginFields("Juanito.Banana","Testing1234");
         validateMainPage();
@@ -56,7 +56,7 @@ public class BuySuite extends BaseTest {
 
     @Test
     public void  buyWithoutQuantity(){
-        accessPage("http://vamonos-finance.herokuapp.com/login");
+        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
         validateLoginPage();
         fillLoginFields("Juanito.Banana","Testing1234");
         validateMainPage();

@@ -6,7 +6,7 @@ public class RegisterSuite extends BaseTest {
 
     @Test
     public void happyPathRegister(){
-      accessPage("http://vamonos-finance.herokuapp.com/login");
+      accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
       validateLoginPage();
       clickRegisterLink();
       validateRegisterPage();
@@ -15,7 +15,7 @@ public class RegisterSuite extends BaseTest {
 
     @Test
     public void noMatchPasswordsRegister(){
-        accessPage("http://vamonos-finance.herokuapp.com/login");
+        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
         validateLoginPage();
         clickRegisterLink();
         validateRegisterPage();

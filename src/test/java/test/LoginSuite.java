@@ -1,26 +1,32 @@
 package test;
 
+import junitparams.FileParameters;
+import junitparams.JUnitParamsRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(JUnitParamsRunner.class)
 public class LoginSuite extends BaseTest{
     @Test
-    public void happyPathLogin(){
-        accessPage("http://vamonos-finance.herokuapp.com/login");
+    @FileParameters("./data/HappyLogin.csv")
+    public void happyPathLogin(String browser, String url, String username, String password){
+        accessPage(browser, url);
         validateLoginPage();
-        fillLoginFields("Juanito.Banana","Testing1234");
+        fillLoginFields(username,password);
     }
 
     @Test
-    public void invalidLogin(){
-        accessPage("http://vamonos-finance.herokuapp.com/login");
+    @FileParameters("./data/InvalidLogin.csv")
+    public void invalidLogin(String browser, String url, String invalidUser, String invalidPassword){
+        accessPage(browser,url);
         validateLoginPage();
-        fillLoginFields("Juanito.Banana2","Testing1234");
+        fillLoginFields(invalidUser, invalidPassword);
         validateLoginErrorImage();
     }
 
     @Test
     public void emptyFieldLogin(){
-        accessPage("http://vamonos-finance.herokuapp.com/login");
+        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
         validateLoginPage();
         fillLoginFields("","");
         validateEmptyLoginErrorImage();
