@@ -1,68 +1,74 @@
 package test;
 
+import junitparams.FileParameters;
 import org.junit.Test;
 
 public class BuySuite extends BaseTest {
     @Test
-    public void buyOneShare(){
-        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
+    @FileParameters("./data/BuyOneShare.csv")
+    public void buyOneShare(String browser, String url, String username, String password, String symbol, String quantity, String symbolHistory, String quantityHistory){
+        accessPage(browser, url);
         validateLoginPage();
-        fillLoginFields("Juanito.Banana","Testing1234");
+        fillLoginFields(username, password);
         validateMainPage();
         clickBuyLink();
         validateBuyPage();
-        fillBuyFields("MX","5");
+        fillBuyFields(symbol,quantity);
         validateMainPage();
         clickHistoryLink();
         validateHistoryPage();
-        checkHistoryUpdate("MX","5");
+        checkHistoryUpdate(symbolHistory,quantityHistory);
     }
 
     @Test
-    public void buyUserHasNoMoreMoney(){
-        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
+    @FileParameters("./data/BuyUserHasNoMoreMoney.csv")
+    public void buyUserHasNoMoreMoney(String browser, String url, String username, String password, String symbol, String elevateQuantity){
+        accessPage(browser,url);
         validateLoginPage();
-        fillLoginFields("Juanito.Banana","Testing1234");
+        fillLoginFields(username,password);
         validateMainPage();
         clickBuyLink();
         validateBuyPage();
-        fillBuyFields("MX","9999");
+        fillBuyFields(symbol,elevateQuantity);
         validateShortTransactionImageError();
     }
 
     @Test
-    public void buyWithoutSymbol(){
-        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
+    @FileParameters("./data/BuyWithoutSymbol.csv")
+    public void buyWithoutSymbol(String browser, String url, String username, String password, String noSymbol, String quantity){
+        accessPage(browser, url);
         validateLoginPage();
-        fillLoginFields("Juanito.Banana","Testing1234");
+        fillLoginFields(username,password);
         validateMainPage();
         clickBuyLink();
         validateBuyPage();
-        fillBuyFields("","9999");
+        fillBuyFields(noSymbol,quantity);
         validateSymbolImageError();
     }
 
     @Test
-    public void buyWithWrongSymbol(){
-        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
+    @FileParameters("./data/BuyWithWrongSymbol.csv")
+    public void buyWithWrongSymbol(String browser, String url, String username, String password, String wrongSymbol, String quantity){
+        accessPage(browser, url);
         validateLoginPage();
-        fillLoginFields("Juanito.Banana","Testing1234");
+        fillLoginFields(username,password);
         validateMainPage();
         clickBuyLink();
         validateBuyPage();
-        fillBuyFields("XX","1");
+        fillBuyFields(wrongSymbol,quantity);
         validateCorectSymbolImageError();
     }
 
     @Test
-    public void  buyWithoutQuantity(){
-        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
+    @FileParameters("./data/BuyWithoutQuantity.csv")
+    public void  buyWithoutQuantity(String browser, String url, String username, String password, String symbol, String noQuantity){
+        accessPage(browser, url);
         validateLoginPage();
-        fillLoginFields("Juanito.Banana","Testing1234");
+        fillLoginFields(username,password);
         validateMainPage();
         clickBuyLink();
         validateBuyPage();
-        fillBuyFields("MX","");
+        fillBuyFields(symbol,noQuantity);
         validateQuantityImageError();
     }
 }

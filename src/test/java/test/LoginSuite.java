@@ -25,10 +25,11 @@ public class LoginSuite extends BaseTest{
     }
 
     @Test
-    public void emptyFieldLogin(){
-        accessPage("chrome","http://vamonos-finance.herokuapp.com/login");
+    @FileParameters("./data/EmptyFieldLogin.csv")
+    public void emptyFieldLogin(String browser, String url, String emptyUsername, String emptyPassword){
+        accessPage(browser,url);
         validateLoginPage();
-        fillLoginFields("","");
+        fillLoginFields(emptyUsername,emptyPassword);
         validateEmptyLoginErrorImage();
     }
 }
