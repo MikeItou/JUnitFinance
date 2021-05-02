@@ -19,6 +19,7 @@ public class ErrorPage {
     WebElement errorSymbolImage;
     WebElement errorQuantityImage;
     WebElement errorCorrectSymbolImage;
+    WebElement errorOverSellImage;
 
 
     WebElement imageError;
@@ -101,6 +102,17 @@ public class ErrorPage {
             System.out.println("Quantity error message is visualize");
         }catch (TimeoutException te){
             System.out.println("Quantity error message is not visualize");
+        }
+    }
+
+    public void validOverSellQuantityImageError(){
+        try {
+            errorOverSellImage = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.border")));
+            explicitWait.until(ExpectedConditions.attributeContains(errorOverSellImage,"src", "You-only-have-"));
+
+            System.out.println("Oversell error message is visualize");
+        }catch (TimeoutException te){
+            System.out.println("Oversell error message is not visualize");
         }
     }
 }

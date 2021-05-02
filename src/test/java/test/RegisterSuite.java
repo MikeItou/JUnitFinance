@@ -17,6 +17,7 @@ public class RegisterSuite extends BaseTest {
         login.clickRegisterLink();
         register.validateRegisterPage();
         register.fillRegisterFields(firstName,lastName,username,email,password,repeatPassword,phone,birthDate,creditCard,expirationDate,cvv);
+        login.validateLoginPage();
     }
 
     @Test

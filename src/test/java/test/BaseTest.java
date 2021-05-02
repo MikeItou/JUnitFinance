@@ -24,6 +24,7 @@ public class BaseTest {
     protected RegisterPage register;
     protected BuyPage buy;
     protected HistoryPage history;
+    protected SellPage sell;
 
     /*@Before
     public void before(){
@@ -32,7 +33,7 @@ public class BaseTest {
 
     @After
     public void after(){
-        driver.quit();
+        //driver.quit();
     }
 
     protected void setup(String browser,String url) {
@@ -60,5 +61,6 @@ public class BaseTest {
         error = new ErrorPage(driver);
         buy = new BuyPage(driver);
         history = new HistoryPage(driver);
+        sell = new SellPage(driver);
     }
 }

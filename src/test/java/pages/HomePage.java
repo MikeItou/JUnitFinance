@@ -44,4 +44,7 @@ public class HomePage {
     public void clickHistoryLink(){
         historyLink.click();
     }
+    public void clickSellLink(){
+        sellLink.click();
+    }
 }
