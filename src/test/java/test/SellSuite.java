@@ -15,6 +15,7 @@ public class SellSuite extends BaseTest{
         login.validateLoginPage();
         login.fillLoginFields(username,password);
         home.validateHomePage();
+        home.verifyNoSellsTable();
         home.clickSellLink();
         sell.validateSellPage();
         sell.sellProduct(symbol,quantity);
@@ -32,6 +33,7 @@ public class SellSuite extends BaseTest{
         login.validateLoginPage();
         login.fillLoginFields(username,password);
         home.validateHomePage();
+        home.verifyNoSellsTable();
         home.clickSellLink();
         sell.validNothingToSellLegend();
     }
@@ -43,6 +45,7 @@ public class SellSuite extends BaseTest{
         login.validateLoginPage();
         login.fillLoginFields(username,password);
         home.validateHomePage();
+        home.verifyNoSellsTable();
         home.clickSellLink();
         sell.validateSellPage();
         sell.sellProduct(symbol,quantity);

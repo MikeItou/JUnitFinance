@@ -18,6 +18,8 @@ public class HomePage {
     WebElement sellLink;// css = "[href='/sell']"
     WebElement historyLink;// css = "[href='/history']"
     WebElement logoutLink;// css = "[href='/logout']"
+    WebElement symbolTableValue;
+    WebElement totalTableValue;
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -38,13 +40,33 @@ public class HomePage {
             System.out.println("Home elements are not visualize correctly");
         }
     }
+    public void verifyNoSellsTable(){
+        String tmpSymbol="CASH";
+        String tmpTotal="10000.00";
+        
+        symbolTableValue = driver.findElement(By.xpath("//tr[contains(.,'CASH')]/td[1]"));
+        totalTableValue = driver.findElement(By.xpath("//tr[contains(.,'CASH')]/td[5]"));
+
+        if (tmpSymbol.equals(symbolTableValue.getText()) && tmpTotal.equals(totalTableValue.getText())){
+            System.out.println("There are no sales made it by the user.");
+        }
+        else {
+            System.out.println("The user has made a couple of sales.");
+        }
+    }
     public void clickBuyLink(){
         buylink.click();
     }
     public void clickHistoryLink(){
         historyLink.click();
     }
-    public void clickSellLink(){
-        sellLink.click();
+    public void clickSellLink() {
+    sellLink.click();
+    }
+    public void clickLogoutLink(){
+        logoutLink.click();
+    }
+    public void clickQuoteLink(){
+        quoteLink.click();
     }
 }

@@ -70,6 +70,10 @@ public class LoginPage {
     }
 
     public void clickRegisterLink() {
+
         registerLink.click();
+    }
+    public void clickLoinLink(){
+        loginLink.click();
     }
 }
